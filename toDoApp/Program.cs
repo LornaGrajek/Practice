@@ -46,7 +46,15 @@ do
             }
         break;
         case "3":
-            Console.WriteLine("Complete an item");
+            Console.WriteLine("Choose an item to complete");
+            for (int i = 0; i < ToDoList.Count; i++)
+            {
+                Console.WriteLine($"[{i}] {ToDoList[i].Print()}");
+            }
+            int selection = int.Parse(Console.ReadLine());
+            ToDoItem itemToComplete = ToDoList[selection];
+            itemToComplete.CompleteItem();
+            Console.WriteLine($"You completed {itemToComplete.Print()}");
         break;
         case "x":
             Console.WriteLine("Goodbye!");
